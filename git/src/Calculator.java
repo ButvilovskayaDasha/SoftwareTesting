@@ -12,7 +12,7 @@ public class Calculator {
             num1 = Double.parseDouble(read.readLine());
             System.out.println("Enter the second number: ");
             num2 = Double.parseDouble(read.readLine());
-            System.out.println("Enter the operation (+, -, *, /, %, ^): ");
+            System.out.println("Enter the operation (+, -, *, /, %, ^, min): ");
             operation = read.readLine();
         }
         catch (IOException ex) {
@@ -41,6 +41,9 @@ public class Calculator {
                 System.out.println("Result: " + num1 + " " + operation + " " + num2 + " = " + num3);
                 break;
             case "^": num3 = Math.pow(num1, num2);
+                System.out.println("Result: " + num1 + " " + operation + " " + num2 + " = " + num3);
+                break;
+            case "min": num3 = Math.min(num1, num2);
                 System.out.println("Result: " + num1 + " " + operation + " " + num2 + " = " + num3);
                 break;
             default: System.out.println("Invalid operation");
