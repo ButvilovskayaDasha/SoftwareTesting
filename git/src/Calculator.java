@@ -17,7 +17,7 @@ public class Calculator {
             num1 = Double.parseDouble(read.readLine());
             System.out.println("Enter the second number: ");
             num2 = Double.parseDouble(read.readLine());
-            System.out.println("Enter the operation (+, -, *, /, %, ^, min, max): ");
+            System.out.println("Enter the operation (+, -, *, /, %, ^, min, max, hypot): ");
             operation = read.readLine();
         }
         catch (IOException ex) {
@@ -52,6 +52,9 @@ public class Calculator {
                 printResult(num1, num2, num3, operation);
                 break;
             case "max": num3 = Math.max(num1, num2);
+                printResult(num1, num2, num3, operation);
+                break;
+            case "hypot": num3 = Math.hypot(num1, num2);
                 printResult(num1, num2, num3, operation);
                 break;
             default: System.out.println("Invalid operation");
