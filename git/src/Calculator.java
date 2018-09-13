@@ -15,10 +15,10 @@ public class Calculator {
         try {
             System.out.println("Enter the first number: ");
             num1 = Double.parseDouble(read.readLine());
-            System.out.println("Enter the second number: ");
-            num2 = Double.parseDouble(read.readLine());
             System.out.println("Enter the operation (+, -, *, /, %, ^, min, max): ");
             operation = read.readLine();
+            System.out.println("Enter the second number: ");
+            num2 = Double.parseDouble(read.readLine());
         }
         catch (IOException ex) {
             System.out.println("IO exception");
