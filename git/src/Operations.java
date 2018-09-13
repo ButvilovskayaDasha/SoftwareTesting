@@ -31,8 +31,4 @@ public class Operations {
     public static double maximum(double n1, double n2) {
         return Math.max(n1, n2);
     }
-
-    public static double sqrt(double n1) {
-        return Math.sqrt(n1);
-    }
 }
