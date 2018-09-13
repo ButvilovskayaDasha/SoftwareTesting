@@ -30,28 +30,28 @@ public class Calculator {
         }
 
         switch (operation) {
-            case "+": num3 = num1 + num2;
+            case "+": num3 = Operations.addition(num1, num2);
                 printResult(num1, num2, num3, operation);
                 break;
-            case "-": num3 = num1 - num2;
+            case "-": num3 = Operations.subtraction(num1, num2);
                 printResult(num1, num2, num3, operation);
                 break;
-            case "*": num3 = num1 * num2;
+            case "*": num3 = Operations.multiplication(num1, num2);
                 printResult(num1, num2, num3, operation);
                 break;
-            case "/": num3 = num1 / num2;
+            case "/": num3 = Operations.division(num1, num2);
                 printResult(num1, num2, num3, operation);
                 break;
-            case "%": num3 = num1 % num2;
+            case "%": num3 = Operations.remainder(num1, num2);
                 printResult(num1, num2, num3, operation);
                 break;
-            case "^": num3 = Math.pow(num1, num2);
+            case "^": num3 = Operations.exponentiation(num1, num2);
                 printResult(num1, num2, num3, operation);
                 break;
-            case "min": num3 = Math.min(num1, num2);
+            case "min": num3 = Operations.minimum(num1, num2);
                 printResult(num1, num2, num3, operation);
                 break;
-            case "max": num3 = Math.max(num1, num2);
+            case "max": num3 = Operations.maximum(num1, num2);
                 printResult(num1, num2, num3, operation);
                 break;
             case "hypot": num3 = Math.hypot(num1, num2);
