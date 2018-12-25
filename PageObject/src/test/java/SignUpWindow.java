@@ -7,10 +7,10 @@ import org.openqa.selenium.support.PageFactory;
 
 public class SignUpWindow extends AbstractPage{
 
-    @FindBy(xpath = "//*[@id=\"email347\"]")
+    @FindBy(xpath = "//*[@id=\"email308\"]")
     private WebElement inputEmail;
 
-    @FindBy(xpath = "//*[@id=\"password353\"]")
+    @FindBy(xpath = "//*[@id=\"password325\"]")
     private WebElement inputPassword;
 
     @FindBy(xpath = "//*[@class=\"core-btn-primary\"]")
