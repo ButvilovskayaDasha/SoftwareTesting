@@ -284,6 +284,8 @@ public class MainPage extends AbstractPage {
     }
 
     public boolean checkLanguage() {
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(tabFlights));
         return driver.getCurrentUrl().equals(GERMAN_URL) && tabFlights.getAttribute("textContent").equals("Flüge");
     }
 

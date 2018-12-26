@@ -18,7 +18,7 @@ public class TestCases {
     private final String FROMAIRPORT = "Malta";
     private final String TOAIRPORT = "Barcelona";
     private final String UNREALAIRPORT = "Unicornport";
-    private final String FLYOUTDAY = "26";
+    private final String FLYOUTDAY = "28";
     private final String FLYOUTMONTH = "12";
     private final String FLYOUTYEAR = "2018";
     private final String FLYBACKDAY = "30";
