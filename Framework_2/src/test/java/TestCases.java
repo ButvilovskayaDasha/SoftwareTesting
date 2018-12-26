@@ -56,7 +56,7 @@ public class TestCases {
     }
 
     @Test(description = "Language Change")
-    public void testLanguageChange() {
+    public void testLanguageChange() throws InterruptedException {
         assertTrue(steps.languageChange());
     }
 

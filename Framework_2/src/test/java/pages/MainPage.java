@@ -283,9 +283,10 @@ public class MainPage extends AbstractPage {
         return errorSameAirport.getAttribute("textContent").equals("Sorry, we don't fly from " + airport + " to " + airport.toLowerCase());
     }
 
-    public boolean checkLanguage() {
+    public boolean checkLanguage() throws InterruptedException {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(tabFlights));
+        Thread.sleep(1000);
         return driver.getCurrentUrl().equals(GERMAN_URL) && tabFlights.getAttribute("textContent").equals("Flüge");
     }
 
