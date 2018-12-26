@@ -17,7 +17,7 @@ public class TestCases {
     private final String PASSWORD = "PageObject123";
     private final String FROMAIRPORT = "Malta";
     private final String TOAIRPORT = "Barcelona";
-    private final String UNREALAIRPORT = "Unicornport";
+    private final String UNREALAIRPORT = "Unicornport1";
     private final String FLYOUTDAY = "28";
     private final String FLYOUTMONTH = "12";
     private final String FLYOUTYEAR = "2018";
