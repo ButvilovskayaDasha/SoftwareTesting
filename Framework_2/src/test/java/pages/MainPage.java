@@ -222,6 +222,7 @@ public class MainPage extends AbstractPage {
         inputCheckoutDay.sendKeys(checkoutDay);
         inputCheckoutMonth.sendKeys(checkoutMonth);
         inputCheckoutYear.sendKeys(checkoutYear);
+        inputDestinationCity.sendKeys(Keys.ENTER);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(buttonGoToBooking));
         buttonGoToBooking.click();
@@ -251,6 +252,8 @@ public class MainPage extends AbstractPage {
 
     public void fillInformationCarHire(String city, String pickUpDay, String pickUpMonth, String pickUpYear, String dropOffDay, String dropOffMonth, String dropOffYear) {
         inputCity.sendKeys(city);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        wait.until(ExpectedConditions.elementToBeClickable(selectCityFromList));
         selectCityFromList.click();
         inputPickUpDay.sendKeys(pickUpDay);
         inputPickUpMonth.sendKeys(pickUpMonth);
@@ -284,7 +287,7 @@ public class MainPage extends AbstractPage {
     }
 
     public boolean checkLanguage() {
-        return driver.getCurrentUrl().equals(GERMAN_URL) && tabFlights.getAttribute("textContent").equals("Flüge");
+        return driver.getCurrentUrl().equals(GERMAN_URL);
     }
 
     public boolean checkInfantsError() {
