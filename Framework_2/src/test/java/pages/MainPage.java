@@ -205,7 +205,6 @@ public class MainPage extends AbstractPage {
 
     public void changeLanguage() {
         aChangeLanguage.click();
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", aLanguageSelect);
         aLanguageSelect.click();
     }
 
@@ -225,6 +224,7 @@ public class MainPage extends AbstractPage {
         inputCheckoutYear.sendKeys(checkoutYear);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(buttonGoToBooking));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonGoToBooking);
         buttonGoToBooking.click();
         return new BookingListPage(driver);
     }
@@ -287,7 +287,6 @@ public class MainPage extends AbstractPage {
     public boolean checkLanguage() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(tabFlights));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", tabFlights);
         return driver.getCurrentUrl().equals(GERMAN_URL) && tabFlights.getAttribute("textContent").equals("Flüge");
     }
 
