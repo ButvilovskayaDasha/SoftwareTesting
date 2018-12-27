@@ -72,6 +72,7 @@ public class SelectCarsPage extends AbstractPage {
     public void fillInformation(String firstname, String surname, String email, String address, String city) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(inputFirstname));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", inputCity);
         inputFirstname.sendKeys(firstname);
         inputSurname.sendKeys(surname);
         inputEmail.sendKeys(email);
@@ -80,6 +81,7 @@ public class SelectCarsPage extends AbstractPage {
     }
 
     public boolean containsError() {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", confirmButton);
         confirmButton.click();
         return driver.findElements(By.xpath("//span[@data-tooltip='Please fill in your phone number.']")).size() > 0;
     }

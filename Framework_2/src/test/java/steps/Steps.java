@@ -44,7 +44,7 @@ public class Steps {
         return home.checkInfantsError();
     }
 
-    public boolean languageChange() throws InterruptedException {
+    public boolean languageChange() {
         MainPage home = new MainPage(driver);
         home.openPage();
         home.changeLanguage();

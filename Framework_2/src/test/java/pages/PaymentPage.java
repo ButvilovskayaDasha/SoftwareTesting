@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -99,12 +100,14 @@ public class PaymentPage extends AbstractPage {
         inputAddress.sendKeys(address);
         inputCity.sendKeys(city);
         inputPostcode.sendKeys(postcode);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonPayNow);
         buttonPayNow.click();
     }
 
     public boolean checkTerm() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.visibilityOf(spanTermError));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", spanTermError);
         return spanTermError.getAttribute("textContent").equals(" Terms & Conditions: please indicate that you have read and understand the terms and conditions to continue");
     }
 }

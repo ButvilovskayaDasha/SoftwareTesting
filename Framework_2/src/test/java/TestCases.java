@@ -6,6 +6,7 @@ import steps.Steps;
 
 import java.io.IOException;
 
+import static org.testng.Assert.assertFalse;
 import static org.testng.Assert.assertTrue;
 
 public class TestCases {
@@ -56,7 +57,7 @@ public class TestCases {
     }
 
     @Test(description = "Language Change")
-    public void testLanguageChange() throws InterruptedException {
+    public void testLanguageChange() {
         assertTrue(steps.languageChange());
     }
 
