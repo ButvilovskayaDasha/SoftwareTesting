@@ -214,12 +214,16 @@ public class MainPage extends AbstractPage {
 
     public BookingListPage fillBookingInformation(String destinationCity, String checkinDay, String checkinMonth,
                                                   String checkinYear, String checkoutDay, String checkoutMonth, String checkoutYear) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", destinationCity);
         inputDestinationCity.sendKeys(destinationCity);
         dropdownCity.click();
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", checkinDay);
         inputCheckinDay.sendKeys(checkinDay);
         inputCheckinMonth.sendKeys(checkinMonth);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", checkinYear);
         inputCheckinYear.sendKeys(checkinYear);
         inputCheckoutDay.sendKeys(checkoutDay);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", checkoutMonth);
         inputCheckoutMonth.sendKeys(checkoutMonth);
         inputCheckoutYear.sendKeys(checkoutYear);
         WebDriverWait wait = new WebDriverWait(driver, 10);
@@ -287,7 +291,7 @@ public class MainPage extends AbstractPage {
     public boolean checkLanguage() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(tabFlights));
-        return driver.getCurrentUrl().equals(GERMAN_URL) && tabFlights.getAttribute("textContent").equals("Flüge");
+        return driver.getCurrentUrl().equals(GERMAN_URL);
     }
 
     public boolean checkInfantsError() {
