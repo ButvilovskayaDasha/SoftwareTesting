@@ -49,11 +49,13 @@ public class SelectCarsPage extends AbstractPage {
         driver.get(BASE_URL);
     }
 
-    public void clickToSelectCar() {
+    public void clickToSelectCar() throws InterruptedException {
+        Thread.sleep(1000);
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(carSelectButton));
+        wait.until(ExpectedConditions.elementToBeClickable(carSelectButton));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", carSelectButton);
         carSelectButton.click();
     }
 
