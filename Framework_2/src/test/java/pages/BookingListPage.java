@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,7 +29,6 @@ public class BookingListPage extends AbstractPage {
     public BookingDetailsPage selectHotel() {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(selectedHotel));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", selectedHotel);
         selectedHotel.click();
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));

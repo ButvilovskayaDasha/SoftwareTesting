@@ -100,7 +100,6 @@ public class PaymentPage extends AbstractPage {
         inputAddress.sendKeys(address);
         inputCity.sendKeys(city);
         inputPostcode.sendKeys(postcode);
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonPayNow);
         buttonPayNow.click();
     }
 

@@ -23,7 +23,6 @@ public class BookingDetailsPage extends AbstractPage {
     }
 
     public PaymentPage bookApartments() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonBookNow);
         buttonBookNow.click();
         return new PaymentPage(driver);
     }

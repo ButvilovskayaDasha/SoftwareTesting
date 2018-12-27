@@ -54,17 +54,14 @@ public class SelectCarsPage extends AbstractPage {
         driver.switchTo().window(tabs2.get(1));
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(carSelectButton));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", carSelectButton);
         carSelectButton.click();
     }
 
-    public void clickToContinueSelectCar() throws InterruptedException {
+    public void clickToContinueSelectCar() {
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(2));
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(carBokNowButton));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", carBokNowButton);
-        Thread.sleep(1500);
         carBokNowButton.click();
     }
 
@@ -72,7 +69,6 @@ public class SelectCarsPage extends AbstractPage {
     public void fillInformation(String firstname, String surname, String email, String address, String city) {
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(inputFirstname));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", inputCity);
         inputFirstname.sendKeys(firstname);
         inputSurname.sendKeys(surname);
         inputEmail.sendKeys(email);
@@ -81,7 +77,6 @@ public class SelectCarsPage extends AbstractPage {
     }
 
     public boolean containsError() {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", confirmButton);
         confirmButton.click();
         return driver.findElements(By.xpath("//span[@data-tooltip='Please fill in your phone number.']")).size() > 0;
     }
