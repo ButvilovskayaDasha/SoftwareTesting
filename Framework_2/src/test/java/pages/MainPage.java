@@ -224,7 +224,6 @@ public class MainPage extends AbstractPage {
         inputCheckoutYear.sendKeys(checkoutYear);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.elementToBeClickable(buttonGoToBooking));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", buttonGoToBooking);
         buttonGoToBooking.click();
         return new BookingListPage(driver);
     }
@@ -251,8 +250,6 @@ public class MainPage extends AbstractPage {
     }
 
     public void fillInformationCarHire(String city, String pickUpDay, String pickUpMonth, String pickUpYear, String dropOffDay, String dropOffMonth, String dropOffYear) {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(inputCity));
         inputCity.sendKeys(city);
         selectCityFromList.click();
         inputPickUpDay.sendKeys(pickUpDay);
@@ -269,7 +266,6 @@ public class MainPage extends AbstractPage {
     }
 
     public void fillLoginSignup(String emailLogin, String passwordLogin) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", inputEmailLogin);
         inputEmailLogin.sendKeys(emailLogin);
         inputPasswordLogin.sendKeys(passwordLogin);
         loginButton.click();
@@ -288,9 +284,7 @@ public class MainPage extends AbstractPage {
     }
 
     public boolean checkLanguage() {
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(tabFlights));
-        return driver.getCurrentUrl().equals(GERMAN_URL);
+        return driver.getCurrentUrl().equals(GERMAN_URL) && tabFlights.getAttribute("textContent").equals("Flüge");
     }
 
     public boolean checkInfantsError() {

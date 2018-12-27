@@ -15,7 +15,7 @@ public class SelectCarsPage extends AbstractPage {
 
     private final String BASE_URL = "https://car-hire.ryanair.com/en-gb/book";
 
-    @FindBy(xpath = "//div[contains(@id,'ct-availability-list')]/div[2]/ct-vehicle-block/div/div/div/div/div[2]/div[4]/ct-vehicle-block-buttons/button[1]")
+    @FindBy(xpath = "//div[contains(@id,'ct-availability-list')]/div[1]/ct-vehicle-block/div/div/div/div/div[2]/div[4]/ct-vehicle-block-buttons/button[1]")
     private WebElement carSelectButton;
 
     @FindBy(xpath = "//button[@ng-click='buttonBookNow()']")
@@ -50,20 +50,22 @@ public class SelectCarsPage extends AbstractPage {
     }
 
     public void clickToSelectCar() throws InterruptedException {
-        Thread.sleep(1000);
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(1));
+        Thread.sleep(1500);
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        wait.until(ExpectedConditions.elementToBeClickable(carSelectButton));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", carSelectButton);
+        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(carSelectButton));
+        Thread.sleep(1500);
         carSelectButton.click();
     }
 
-    public void clickToContinueSelectCar() {
+    public void clickToContinueSelectCar() throws InterruptedException {
         ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs2.get(2));
         WebDriverWait wait = new WebDriverWait(driver, 10);
         WebElement element = wait.until(ExpectedConditions.elementToBeClickable(carBokNowButton));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", carBokNowButton);
+        Thread.sleep(1500);
         carBokNowButton.click();
     }
 
@@ -84,4 +86,3 @@ public class SelectCarsPage extends AbstractPage {
     }
 
 }
-
